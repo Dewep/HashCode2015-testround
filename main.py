@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from slice import Slice
 
 
 pizza = []
@@ -35,6 +36,18 @@ print("Nb jambons %s" % len(jambons))
 
 # x = colonne
 # y = ligne
+
+
+
+for line in pizza:
+    x = 0
+    for col in line:
+        if col == 'H':
+            pass
+        x += 1
+    y += 1
+
+
 
 
 def find_first_jambon(x, y):
@@ -83,6 +96,16 @@ print(find_first_ham(10, 19))
 
 
 
+
+
+
+
+#for jambon in jambons:
+#
+
+
+
+
 #with open("output.csv", "w") as text_file:
 #    for s in servers:
 #        print(s.csv(), file=text_file)
@@ -93,3 +116,30 @@ print(find_first_ham(10, 19))
 #            print("x", file=text_file)
 #        else:
 #            print("%d %d %d" % (s._y, s._x, s._group), file=text_file)
+
+#List of slices
+slices = [];
+
+#filling with dumb data
+slices.append(Slice((1, 1), (5, 5)))
+slices.append(Slice((10, 11), (7, 8)))
+slices.append(Slice((15, 16), (12, 18)))
+slices.append(Slice((18, 19), (18, 18)))
+slices.append(Slice((21, 22), (21, 21)))
+
+# Write the output file according to the format defined in the subject :
+# first line is the number of slice
+# each following line is a slice (first 2 digits are the line, last 2 digits are the columns)
+def print_output(slices):
+    result = open("result.txt", "w")
+    length = len(slices)
+
+    print(length)
+    result.write(str(length)  + '\n')
+    for slice in slices:
+        slice_output = slice.get_printable_output()
+        print(slice_output)
+        result.write(slice_output + '\n')
+    result.close()
+
+print_output(slices)
