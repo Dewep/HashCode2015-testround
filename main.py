@@ -44,12 +44,16 @@ for line in pizza:
     x = 0
     begin = -1
     count = 0
-    for col in line:
-        if col == 'H':
+    for x in range(0, len(line)):
+        if line[x] == 'H':
             if begin == -1:
                 begin = x
             else:
                 count += 1
+        if (x - begin) >= 12:
+            x = begin
+            begin = -1
+            count = 0
         if count == 2 and (x - begin) < 12:
             slices.append(Slice((y, y), (begin, x)))
             count = 0
