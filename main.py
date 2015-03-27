@@ -37,14 +37,11 @@ print("Nb jambons %s" % len(jambons))
 # y = ligne
 
 
-jambons = [(1, 1), (2, 1), (3, 1)]
-
-
 def find_first_jambon(x, y):
-    tab = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
+    tab = [(-1, -1), (0, -1), (1, -1), (-1, 0), (0, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
     found = []
     lvl = 1
-    while lvl < H and len(found) == 0:
+    while lvl < S and len(found) < H:
         for i in tab:
             new_pt = (x * (i[0] * lvl), y * (i[1] * lvl))
             if new_pt in jambons:
@@ -52,6 +49,8 @@ def find_first_jambon(x, y):
         lvl += 1
     return found
 
+
+print(find_first_jambon(16, 16))
 
 
 
