@@ -38,6 +38,18 @@ print("Nb jambons %s" % len(jambons))
 # y = ligne
 
 
+
+for line in pizza:
+    x = 0
+    for col in line:
+        if col == 'H':
+            pass
+        x += 1
+    y += 1
+
+
+
+
 def find_first_jambon(x, y):
     tab = [(-1, -1), (0, -1), (1, -1), (-1, 0), (0, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
     found = []
@@ -52,6 +64,11 @@ def find_first_jambon(x, y):
 
 
 print(find_first_jambon(16, 16))
+
+
+
+
+
 
 
 
