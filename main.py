@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-from datetime import datetime
-
-from objects import Datacenter, Server, guaranteedCapacity
-
 
 
 pizza = []
@@ -23,6 +19,25 @@ with open("test_round.in", "r") as f:
 
 print("pizza lines %s, cols %s" % (len(pizza), len(pizza[0])))
 
+
+# x = colonne
+# y = ligne
+
+
+jambons = [(1, 1), (2, 1), (3, 1)]
+
+
+def find_first_jambon(x, y):
+    tab = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
+    found = []
+    lvl = 1
+    while lvl < H and len(found) == 0:
+        for i in tab:
+            new_pt = (x * (i[0] * lvl), y * (i[1] * lvl))
+            if new_pt in jambons:
+                found.append(new_pt)
+        lvl += 1
+    return found
 
 
 
