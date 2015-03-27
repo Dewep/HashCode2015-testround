@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-from datetime import datetime
-
-from objects import Datacenter, Server, guaranteedCapacity
 
 
 
 pizza = []
+
+jambons = [] # tableau de tuples (x, y) : ou y == line
 
 
 # liste des parts là où il y a du jambon
@@ -20,9 +19,20 @@ with open("test_round.in", "r") as f:
         print("[%s]" % l)
         pizza.append(l)
 
-
 print("pizza lines %s, cols %s" % (len(pizza), len(pizza[0])))
 
+y = 0
+for line in pizza:
+    x = 0
+    for col in line:
+        if col == 'H':
+            obj = (x, y)
+            jambons.append(obj)
+        x += 1
+    y += 1
+
+print(str(jambons))
+print("Nb jambons %s" % len(jambons))
 
 
 
