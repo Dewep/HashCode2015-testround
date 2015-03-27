@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 
-
 pizza = []
 
 jambons = [] # tableau de tuples (x, y) : ou y == line
@@ -34,6 +33,24 @@ for line in pizza:
 print(str(jambons))
 print("Nb jambons %s" % len(jambons))
 
+# x = colonne
+# y = ligne
+
+
+def find_first_jambon(x, y):
+    tab = [(-1, -1), (0, -1), (1, -1), (-1, 0), (0, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
+    found = []
+    lvl = 1
+    while lvl < S and len(found) < H:
+        for i in tab:
+            new_pt = (x * (i[0] * lvl), y * (i[1] * lvl))
+            if new_pt in jambons:
+                found.append(new_pt)
+        lvl += 1
+    return found
+
+
+print(find_first_jambon(16, 16))
 
 
 
