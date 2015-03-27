@@ -37,6 +37,11 @@ print("Nb jambons %s" % len(jambons))
 
 
 
+#for jambon in jambons:
+#
+
+
+
 
 #with open("output.csv", "w") as text_file:
 #    for s in servers:
