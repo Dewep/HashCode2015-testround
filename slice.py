@@ -5,4 +5,4 @@ class Slice(object):
         (self.column_start, self.column_end) = column_positions
 
     def get_printable_output(self):
-        return str(self.line_start) + ' ' + str(self.line_end) + ' ' + str(self.column_start) + ' ' + str(self.column_end)
+        return str(self.line_start) + ' ' + str(self.column_start) + ' ' + str(self.line_end) + ' ' + str(self.column_end)
