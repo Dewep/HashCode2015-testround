@@ -62,6 +62,17 @@ for line in pizza:
     y += 1
 
 
+i = 0
+for slice in slices:
+    if i + 1 < len(slices):
+        next = slices[i + 1]
+        if next.line_start == slice.line_start:
+            if (slice.column_end - slice.column_start) < 12:
+                cend = next.column_start - 1
+                while (cend - slice.column_start) >= 12:
+                    cend -= 1
+                slice.column_end = cend
+    i += 1
 
 
 def find_first_jambon(x, y):
