@@ -50,7 +50,35 @@ def find_first_jambon(x, y):
     return found
 
 
-print(find_first_jambon(16, 16))
+def find_first_ham(x, y):
+    lvl = 1
+    found = []
+
+    def is_ham(_x, _y):
+        return (_x, _y) in jambons
+
+    found.append((x, y))
+    jambons.remove((x, y))
+    while lvl < S and len(found) < H:
+        i = x + lvl
+        j = y + lvl
+        while j >= y - lvl:
+            if is_ham(i, j):
+                found.append((i, j))
+                jambons.remove((i, j)) # A revoir
+                if len(found) >= H:
+                    return found
+            j -= 1
+            if j < y - lvl:
+                j = y + lvl
+                i -= 1
+            if i < x - lvl:
+                lvl += 1
+                break
+
+    return found
+
+print(find_first_ham(10, 19))
 
 
 
