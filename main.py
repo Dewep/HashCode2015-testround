@@ -4,7 +4,13 @@ from datetime import datetime
 from objects import Datacenter, Server, guaranteedCapacity
 
 
+
 pizza = []
+
+
+# liste des parts là où il y a du jambon
+# récupérer le jambon le plus proche, puis le plus proche de l'autre
+# puis du détermine le carré
 
 with open("test_round.in", "r") as f:
     R, C, H, S = map(int, f.readline().split())
@@ -16,6 +22,10 @@ with open("test_round.in", "r") as f:
 
 
 print("pizza lines %s, cols %s" % (len(pizza), len(pizza[0])))
+
+
+
+
 
 
 #with open("output.csv", "w") as text_file:
