@@ -1,8 +1,8 @@
 class Slice(object):
-    def __init__(self, start_positions, end_positions):
+    def __init__(self, line_positions, column_positions):
         # Unpack tuples.
-        (self.start_x, self.start_y) = start_positions
-        (self.end_x, self.end_y) = end_positions
+        (self.line_start, self.line_end) = line_positions
+        (self.column_start, self.column_end) = column_positions
 
     def get_printable_output(self):
-        return str(self.start_x) + ' ' + str(self.start_y) + ' ' + str(self.end_x) + ' ' + str(self.end_y)
+        return str(self.line_start) + ' ' + str(self.column_start) + ' ' + str(self.line_end) + ' ' + str(self.column_end)

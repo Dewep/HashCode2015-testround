@@ -37,13 +37,23 @@ print("Nb jambons %s" % len(jambons))
 # x = colonne
 # y = ligne
 
+slices = []
 
-
+y = 0
 for line in pizza:
     x = 0
+    begin = -1
+    count = 0
     for col in line:
         if col == 'H':
-            pass
+            if begin == -1:
+                begin = x
+            else:
+                count += 1
+        if count == 3 and (x - begin) < 12:
+            slices.append(Slice((y, y), (begin, x)))
+            count = 0
+            begin = -1
         x += 1
     y += 1
 
@@ -118,14 +128,14 @@ print(find_first_ham(10, 19))
 #            print("%d %d %d" % (s._y, s._x, s._group), file=text_file)
 
 #List of slices
-slices = [];
+#slices = []
 
 #filling with dumb data
-slices.append(Slice((1, 1), (5, 5)))
-slices.append(Slice((10, 11), (7, 8)))
-slices.append(Slice((15, 16), (12, 18)))
-slices.append(Slice((18, 19), (18, 18)))
-slices.append(Slice((21, 22), (21, 21)))
+#slices.append(Slice((1, 1), (5, 5)))
+#slices.append(Slice((10, 11), (7, 8)))
+#slices.append(Slice((15, 16), (12, 18)))
+#slices.append(Slice((18, 19), (18, 18)))
+#slices.append(Slice((21, 22), (21, 21)))
 
 # Write the output file according to the format defined in the subject :
 # first line is the number of slice
