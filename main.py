@@ -50,7 +50,7 @@ for line in pizza:
                 begin = x
             else:
                 count += 1
-        if count == 3 and (x - begin) < 12:
+        if count == 2 and (x - begin) < 12:
             slices.append(Slice((y, y), (begin, x)))
             count = 0
             begin = -1
